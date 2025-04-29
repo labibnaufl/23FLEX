@@ -39,9 +39,9 @@ export default async function DesktopNavbar() {
             </Link>
           </Button>
 
-          {/* Link ke Riwayat Latihan */}
+           {/* Link ke Jadwal Latihan */}
            <Button variant="ghost" className="flex items-center gap-2" asChild>
-            <Link href="/history">
+            <Link href="/schedule">
               <CalendarIcon className="w-4 h-4" />
               <span className="hidden lg:inline">Jadwal Latihan</span>
             </Link>
