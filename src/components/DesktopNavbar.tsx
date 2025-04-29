@@ -1,5 +1,5 @@
 import { currentUser } from "@clerk/nextjs/server";
-import { HomeIcon, UserIcon, PhoneIcon, DumbbellIcon } from "lucide-react";
+import { HomeIcon, UserIcon, GoalIcon, DumbbellIcon, CalendarIcon} from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { SignInButton, UserButton } from "@clerk/nextjs";
