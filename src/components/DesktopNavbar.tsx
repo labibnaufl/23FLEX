@@ -1,5 +1,5 @@
 import { currentUser } from "@clerk/nextjs/server";
-import { HomeIcon, UserIcon, GoalIcon, DumbbellIcon, CalendarIcon} from "lucide-react";
+import { HomeIcon, UserIcon, GoalIcon, DumbbellIcon, ClipboardIcon} from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { SignInButton, UserButton } from "@clerk/nextjs";
@@ -39,11 +39,11 @@ export default async function DesktopNavbar() {
             </Link>
           </Button>
 
-           {/* Link ke Jadwal Latihan */}
+           {/* Link ke Catatan Latihan */}
            <Button variant="ghost" className="flex items-center gap-2" asChild>
             <Link href="/schedule">
-              <CalendarIcon className="w-4 h-4" />
-              <span className="hidden lg:inline">Jadwal Latihan</span>
+              <ClipboardIcon className="w-4 h-4" />
+              <span className="hidden lg:inline">Catatan Latihan</span>
             </Link>
           </Button>
 
