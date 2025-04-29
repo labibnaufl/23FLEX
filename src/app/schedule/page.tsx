@@ -5,7 +5,7 @@ export default async function WorkoutList() {
 
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6">
-        <h1 className="text-2xl font-bold">Catat Latihan</h1>
+        <h1 className="text-2xl font-bold">Catatan Latihan</h1>
         <div className="space-y-6">
         {workouts.map((workout) => (
             <div key={workout.id} className="border p-4 rounded shadow">
