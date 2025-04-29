@@ -23,11 +23,11 @@ export default async function DesktopNavbar() {
       {/* Jika user sudah login */}
       {user ? (
         <>
-          {/* Link ke Kontak */}
+          {/* Link ke Rekomendasi Latihan */}
           <Button variant="ghost" className="flex items-center gap-2" asChild>
-            <Link href="/contact">
-              <PhoneIcon className="w-4 h-4" />
-              <span className="hidden lg:inline">Hubungi Kami</span>
+            <Link href="/recommendation">
+              <GoalIcon className="w-4 h-4" />
+              <span className="hidden lg:inline">Rekomendasi Latihan</span>
             </Link>
           </Button>
 
