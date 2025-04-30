@@ -65,6 +65,15 @@ export default function EditExercisePage() {
 
   };
 
+  const addExerciseField = () => {
+    setExercises([...exercises, { name: '', sets: 0, reps: 0, weight: 0 }]);
+  };
+
+  const removeExerciseField = (index: number) => {
+    const updated = exercises.filter((_, i) => i !== index);
+    setExercises(updated);
+  };
+
   const handleSubmit = async () => {
     try {
       await updateWorkout(id as string, title, type, exercises);
@@ -132,8 +141,18 @@ export default function EditExercisePage() {
                 onChange={(e) => handleChangeExercise(index, 'weight', e.target.value)}
               />
             </div>
+              <Button
+                variant="destructive"
+                onClick={() => removeExerciseField(index)}
+              >
+                Hapus
+              </Button>
           </div>
         ))}
+        <Button variant="outline" onClick={addExerciseField}>
+          + Tambah Latihan
+        </Button>
+
       </div>
 
       <Button className="w-full" onClick={handleSubmit}>
