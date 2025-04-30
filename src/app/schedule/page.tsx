@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { getWorkoutByUser } from "@/actions/schedule";
 import Link from 'next/link';
+import { EditIcon } from 'lucide-react';
 
 export default async function WorkoutList() {
   const workouts = await getWorkoutByUser();
@@ -20,11 +21,12 @@ export default async function WorkoutList() {
                 </li>
               ))}
             </ul>
-            <Link href={`/workout/edit/${workout.id}`}>
-              <Button variant="ghost" className="flex items-center gap-2">
-                Edit
-              </Button>
-            </Link>
+            <Button variant="ghost" className="flex items-center gap-2" asChild>
+                <Link href={`/workout/edit/${workout.id}`}>
+                  <EditIcon className="w-4 h-4" />
+                  <span className="hidden lg:inline">Edit</span>
+                </Link>
+            </Button>
           </div>
         ))}
       </div>
