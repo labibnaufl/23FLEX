@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { getWorkoutByUser } from "@/actions/schedule";
 import Link from 'next/link';
 import { EditIcon } from 'lucide-react';
+import DeleteWorkoutButton from '@/components/DeleteWorkoutButton';
 
 export default async function WorkoutList() {
   const workouts = await getWorkoutByUser();
@@ -29,6 +30,7 @@ export default async function WorkoutList() {
                   <span className="hidden lg:inline">Edit</span>
                 </Link>
             </Button>
+            <DeleteWorkoutButton id={workout.id} />
           </div>
         ))}
       </div>

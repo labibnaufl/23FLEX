@@ -76,3 +76,21 @@ export async function updateWorkout(
 
   return { success: true };
 }
+
+export async function deleteWorkout(id: string) {
+  try {
+    // Hapus exercise dulu (jika tidak pakai cascade)
+    await prisma.exercise.deleteMany({
+      where: { workoutId: id },
+    });
+
+    await prisma.workout.delete({
+      where: { id },
+    });
+
+    return { success: true };
+  } catch (error) {
+    console.error("Gagal menghapus workout:", error);
+    return { success: false };
+  }
+}
