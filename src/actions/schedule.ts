@@ -45,12 +45,7 @@ export async function updateWorkout(
   type: string,
   exercises: (ExerciseItem & { id?: string })[]
 ) {
-  const invalidExercise = exercises.find((ex) => !ex.id);
-  if (invalidExercise) {
-    throw new Error("Semua exercise harus memiliki ID. Update dibatalkan.");
-  }
-
-  // Update workout utama
+  // 1. Update workout
   await prisma.workout.update({
     where: { id },
     data: {
@@ -59,10 +54,28 @@ export async function updateWorkout(
     },
   });
 
-  // Update setiap exercise
-  await Promise.all(
-    exercises.map((ex) =>
-      prisma.exercise.update({
+  // 2. Ambil semua exercise yang saat ini ada di database
+  const existingExercises = await prisma.exercise.findMany({
+    where: { workoutId: id },
+  });
+
+  const clientExerciseIds = exercises
+    .filter((ex) => ex.id)
+    .map((ex) => ex.id!);
+
+  // 3. Hapus latihan yang tidak dikirim oleh client (dihapus di UI)
+  const exercisesToDelete = existingExercises.filter(
+    (ex) => !clientExerciseIds.includes(ex.id)
+  );
+
+  await prisma.exercise.deleteMany({
+    where: { id: { in: exercisesToDelete.map((ex) => ex.id) } },
+  });
+
+  // 4. Update latihan yang sudah ada dan buat yang baru
+  for (const ex of exercises) {
+    if (ex.id) {
+      await prisma.exercise.update({
         where: { id: ex.id },
         data: {
           name: ex.name,
@@ -70,27 +83,32 @@ export async function updateWorkout(
           reps: ex.reps,
           weight: ex.weight,
         },
-      })
-    )
-  );
+      });
+    } else {
+      await prisma.exercise.create({
+        data: {
+          name: ex.name,
+          sets: ex.sets,
+          reps: ex.reps,
+          weight: ex.weight,
+          workoutId: id,
+        },
+      });
+    }
+  }
 
   return { success: true };
 }
 
+
 export async function deleteWorkout(id: string) {
   try {
-    // Hapus exercise dulu (jika tidak pakai cascade)
-    await prisma.exercise.deleteMany({
-      where: { workoutId: id },
-    });
-
     await prisma.workout.delete({
       where: { id },
     });
-
     return { success: true };
   } catch (error) {
     console.error("Gagal menghapus workout:", error);
-    return { success: false };
+    return { success: false, error: "Gagal menghapus workout" };
   }
 }
