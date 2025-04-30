@@ -76,6 +76,10 @@ export default function EditExercisePage() {
     }
   };
 
+  const handleCancel = () => {
+    router.push('/schedule');
+  };
+
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6">
       <h1 className="text-2xl font-bold">Edit Catatan Latihan</h1>
@@ -134,6 +138,9 @@ export default function EditExercisePage() {
 
       <Button className="w-full" onClick={handleSubmit}>
         Simpan Perubahan
+      </Button>
+      <Button className="w-full" variant="outline" onClick={handleCancel}>
+        Batal
       </Button>
     </div>
   );
