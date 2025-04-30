@@ -1,3 +1,5 @@
+'use server';
+
 import { Button } from '@/components/ui/button';
 import { getWorkoutByUser } from "@/actions/schedule";
 import Link from 'next/link';
@@ -22,7 +24,7 @@ export default async function WorkoutList() {
               ))}
             </ul>
             <Button variant="ghost" className="flex items-center gap-2" asChild>
-                <Link href={`/workout/edit/${workout.id}`}>
+                <Link href={`/edit/${workout.id}`}>
                   <EditIcon className="w-4 h-4" />
                   <span className="hidden lg:inline">Edit</span>
                 </Link>
