@@ -32,9 +32,11 @@ export default function EditExercisePage() {
     async function fetchWorkout() {
       try {
         const workout = await getWorkoutById(id as string);
-        setTitle(title);
-        setType(type);
-        setExercises(exercises);
+        if (workout) {
+          setTitle(workout.title);
+          setType(workout.type);
+          setExercises(workout.exercise);
+        }
       } catch (err) {
         alert('Gagal mengambil data workout');
         console.error(err);
@@ -67,7 +69,7 @@ export default function EditExercisePage() {
     try {
       await updateWorkout(id as string, title, type, exercises);
       alert('Workout berhasil diperbarui!');
-      router.push('/dashboard'); // Ganti ke halaman sesuai alurmu
+      router.push('/schedule'); // Ganti ke halaman sesuai alurmu
     } catch (err) {
       console.error(err);
       alert('Gagal memperbarui workout');

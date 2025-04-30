@@ -40,16 +40,17 @@ export async function getWorkoutById(id: string) {
 }
 
 export async function updateWorkout(
-    id: string,
-    title: string,
-    type: string,
-    exercises: (ExerciseItem & { id?: string })[] // tambahkan id opsional
-  ) {
+  id: string,
+  title: string,
+  type: string,
+  exercises: (ExerciseItem & { id?: string })[]
+) {
   const invalidExercise = exercises.find((ex) => !ex.id);
   if (invalidExercise) {
     throw new Error("Semua exercise harus memiliki ID. Update dibatalkan.");
   }
-  
+
+  // Update workout utama
   await prisma.workout.update({
     where: { id },
     data: {
@@ -57,19 +58,20 @@ export async function updateWorkout(
       type,
     },
   });
-  
+
+  // Update setiap exercise
   await Promise.all(
-    exercises.map((ex) => {
-        prisma.exercise.update({
-          where: { id: ex.id },
-          data: {
-            name: ex.name,
-            sets: ex.sets,
-            reps: ex.reps,
-            weight: ex.weight,
-          },
-        })
-    })
+    exercises.map((ex) =>
+      prisma.exercise.update({
+        where: { id: ex.id },
+        data: {
+          name: ex.name,
+          sets: ex.sets,
+          reps: ex.reps,
+          weight: ex.weight,
+        },
+      })
+    )
   );
 
   return { success: true };
