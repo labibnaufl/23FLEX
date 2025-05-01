@@ -22,7 +22,7 @@ const workoutTypes = [
 ];
 
 export default function EditExercisePage() {
-  const { id } = useParams(); // Ambil ID workout dari URL
+  const { id } = useParams() as { id: string }; // Ambil ID workout dari URL
   const router = useRouter();
   const [title, setTitle] = useState('');
   const [type, setType] = useState('');
