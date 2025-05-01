@@ -100,12 +100,18 @@ export async function updateWorkout(
   return { success: true };
 }
 
-
 export async function deleteWorkout(id: string) {
   try {
+    // Hapus data terkait di tabel exercises terlebih dahulu
+    await prisma.exercise.deleteMany({
+      where: { workoutId: id },
+    });
+
+    // Setelah latihan dihapus, hapus data workout
     await prisma.workout.delete({
       where: { id },
     });
+
     return { success: true };
   } catch (error) {
     console.error("Gagal menghapus workout:", error);
