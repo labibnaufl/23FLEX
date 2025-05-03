@@ -10,14 +10,17 @@ type Recommendation = {
   description: string;
 };
 
-export default function RecommendationPage() {
-  // State untuk input dan data rekomendasi
+type AdminRecommendationPageProps = {
+  someProp?: string; // Contoh tipe props jika ada properti tertentu
+};
+
+export default function AdminRecommendationPage(props: AdminRecommendationPageProps) { // Explicitly define the type of props here
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
   const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
 
-  // Fungsi untuk mengambil rekomendasi dari API
+  // Fungsi untuk mengambil data rekomendasi dari API
   const fetchRecommendations = async () => {
     try {
       const response = await fetch("/api/recommendations", { method: "GET" });
@@ -29,7 +32,7 @@ export default function RecommendationPage() {
     }
   };
 
-  // Fetch rekomendasi saat pertama kali halaman dimuat
+  // Fetch data rekomendasi saat pertama kali halaman dimuat
   useEffect(() => {
     fetchRecommendations();
   }, []);
@@ -68,7 +71,7 @@ export default function RecommendationPage() {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-center">Rekomendasi Latihan</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Admin: Tambahkan Rekomendasi Latihan</h1>
 
       {/* Form untuk input rekomendasi */}
       <form onSubmit={handleSubmit} className="mb-8 bg-white shadow-md rounded-lg p-6">

@@ -50,3 +50,20 @@ model Exercise {
   weight    Int
 
 }
+
+model Recommendation {
+  id          String   @id @default(uuid())
+  title       String
+  type        String
+  description String
+  createdAt   DateTime @default(now())
+  adminId     String
+  admin       Admin    @relation(fields: [adminId], references: [id])
+}
+
+model Admin {
+  id               String           @id @default(uuid())
+  username         String           @unique
+  password         String
+  recommendations  Recommendation[]
+}
