@@ -1,4 +1,4 @@
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import asset1 from "@/assets/sports.png";
 import Image from "next/image";
@@ -37,19 +37,15 @@ export const Hero = () => {
             alt="Sports" 
             className="md:absolute md:h-full md:w-auto md:max-w-none md:-left-6 lg:left-0" 
             />
-            <Image className="hidden lg:block absolute top-[450px] left-[750px] transform rotate-[-30deg]" 
-            src={asset2} 
-            alt="Dumbell" 
-            width={300} 
-            />
-            <Image className="hidden lg:block absolute bottom-[450px] right-[650px] transform rotate-[-30deg]" 
+
+            <Image 
+            className="hidden lg:block absolute bottom-[450px] right-[650px] transform rotate-[-30deg]" 
             src={asset2} 
             alt="Dumbell" 
             width={250} 
             />
-
-            
           </div>
+
         </div>
       </div>
     </section>

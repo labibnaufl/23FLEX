@@ -79,6 +79,6 @@
 
 @layer components {
   .card{
-    @apply p-10 border border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full;
+    @apply p-10 border bg-white border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full;
   }
 }

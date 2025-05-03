@@ -9,11 +9,11 @@ export const Product = () => {
       <div className="container">
         <div className="max-w-[540px] mx-auto">
           <div className="flex justify-center">
-            <div className="text-sm inline-flex font-semibold border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight dark:border-[#fff]/20">
+            <div className=" text-sm inline-flex font-semibold border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight dark:border-[#fff]/20">
               Tingkatkan Konsistensi Kamu Bersama Kami
             </div>
           </div>
-          <h2 className="text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-yellow-400 to-orange-400 text-transparent bg-clip-text mt-5">
+          <h2 className="pb-2 text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-yellow-400 to-orange-400 text-transparent bg-clip-text mt-5">
             Sebuah cara yang lebih efektif untuk melacak progressmu
           </h2>
           <p className="text-center text-[22px] leading-[30px] tracking-tight text-black dark:text-white mt-5">

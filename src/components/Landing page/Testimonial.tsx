@@ -82,7 +82,7 @@ const TestiFull = (props: TestiFullProps) => (
   )}>
     {props.testimonials.map(({ text, imageSrc, name, username }, index) => (
       <div className="card" key={index}>
-        <div>{text}</div>
+        <div className="text-black dark:text-black">{text}</div>
         <div className="flex items-center gap-2 mt-5">
           <Image
             src={imageSrc}
@@ -92,8 +92,8 @@ const TestiFull = (props: TestiFullProps) => (
             className="h-10 w-10 rounded-full"
           />
           <div className="flex flex-col">
-            <div className="font-medium tracking-tight leading-5">{name}</div>
-            <div className="tracking-tight leading-5">{username}</div>
+            <div className="text-black dark:text-black font-medium tracking-tight leading-5">{name}</div>
+            <div className="text-black dark:text-black tracking-tight leading-5">{username}</div>
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@ const TestiFull = (props: TestiFullProps) => (
 // Komponen Testimonials
 export const Testimonials = () => {
   return (
-    <section className="bg-white">
+    <section className="bg-white dark:bg-black">
       <div className="container">
          <div className="section-heading">
             <div className="flex justify-center mt-10">
@@ -112,7 +112,7 @@ export const Testimonials = () => {
                   Testimonials Pengguna
                </div>
             </div>
-            <h2 className="text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-yellow-400 to-orange-400 text-transparent bg-clip-text mt-5">
+            <h2 className="pb-2 text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-yellow-400 to-orange-400 text-transparent bg-clip-text mt-5">
                Apa Pendapat Mereka Tentang 23FLEX?
             </h2>
             <p className="text-center text-[22px] leading-[30px] tracking-tight text-black dark:text-white mt-5">

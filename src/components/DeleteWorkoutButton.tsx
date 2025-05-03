@@ -2,7 +2,7 @@
 
 import { Trash2 } from 'lucide-react';
 import { Button } from './ui/button';
-import { deleteWorkout } from '@/actions/schedule';
+import { deleteWorkout } from '@/actions server/schedule';
 import { useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 

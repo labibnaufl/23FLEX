@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider} from '@/components/ThemeProvider';
 import Navbar from "@/components/Navbar";
+import { Footer } from "@/components/footer";
 
 // Load local fonts with variable CSS custom properties
 const geistSans = localFont({
@@ -42,11 +43,12 @@ export default function RootLayout({
           >
             <div className="min-h-screen">
               <Navbar />
-              <main className="py-8">
+              <main className="py-0">
                 {children}
               </main>
             </div>
           </ThemeProvider>
+          <Footer/>
         </body>
       </html>
     </ClerkProvider>

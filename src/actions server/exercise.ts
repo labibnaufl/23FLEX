@@ -2,13 +2,8 @@
 
 import prisma from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
+import { ExerciseItem } from "./exerciseItem";
 
-type ExerciseItem = {
-  name: string;
-  sets: number;
-  reps: number;
-  weight: number;
-};
 
 export async function createWorkout(
   title: string,

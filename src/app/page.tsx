@@ -1,9 +1,9 @@
-import { CallToAction } from "@/components/CTA";
+import { CallToAction } from "@/components/Landing page/CTA";
 import { Footer } from "@/components/footer";
-import { Hero } from "@/components/Hero";
-import { Product } from "@/components/Product";
-import { Testimonials } from "@/components/Testimonial";
-import { TextScroll } from "@/components/Textscroll";
+import { Hero } from "@/components/Landing page/Hero";
+import { Product } from "@/components/Landing page/Product";
+import { Testimonials } from "@/components/Landing page/Testimonial";
+import { TextScroll } from "@/components/Landing page/Textscroll";
 
 export default async function Home() {
   return (
@@ -13,7 +13,6 @@ export default async function Home() {
       <Product/>
       <Testimonials/>
       <CallToAction/>
-      <Footer/>
     </>
   );
 }
