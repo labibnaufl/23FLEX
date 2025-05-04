@@ -48,17 +48,18 @@ model Exercise {
   sets      Int
   reps      Int
   weight    Int
-
+  recommendation Recommendation @relation(fields: [recommendationId], references: [id])
+  recommendationId String
 }
 
 model Recommendation {
-  id          String   @id @default(uuid())
+  id          String     @id @default(uuid())
   title       String
   type        String
-  description String
-  createdAt   DateTime @default(now())
+  createdAt   DateTime   @default(now())
   adminId     String
-  admin       Admin    @relation(fields: [adminId], references: [id])
+  admin       Admin      @relation(fields: [adminId], references: [id])
+  exercises   Exercise[] // Relasi satu-ke-banyak dengan Exercise
 }
 
 model Admin {
