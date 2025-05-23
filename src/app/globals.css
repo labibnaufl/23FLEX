@@ -6,6 +6,47 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .scrollbar-custom {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent ;
+    overflow-y: auto;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track{
+    background: transparent;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb{
+    background-color: transparent;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .scrollbar-custom:hover {
+    scrollbar-color: #c3c3c3 transparent; /* Untuk Firefox */
+  }
+
+  .scrollbar-custom:hover::-webkit-scrollbar-thumb {
+    background-color: #c3c3c3 transparent;
+  
+  }
+  .scrollbar-auto-hide::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+
+  .scrollbar-auto-hide::-webkit-scrollbar{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
 }
 
 
@@ -81,4 +122,5 @@
   .card{
     @apply p-10 border bg-white border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full;
   }
+
 }

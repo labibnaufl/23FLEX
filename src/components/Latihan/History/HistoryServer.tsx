@@ -1,7 +1,7 @@
 'use server';
 
 import { getWorkoutByUser } from "@/actions server/schedule";
-import { WorkoutListClient } from "./HistoryClient";
+import { WorkoutListClient } from "./History/HistoryClient";
 import asset1 from '@/assets/Dumbell.png'
 import Image from "next/image";
 import { Button } from "../ui/button";

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useTransition } from "react";
 import { ExerciseItem } from "@/actions server/exerciseItem";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { Search, TrashIcon, EditIcon } from "lucide-react";
 import { deleteWorkout } from "@/actions server/historyCRUD";
 import { useRouter } from "next/navigation";

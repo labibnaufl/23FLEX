@@ -1,10 +1,19 @@
+'use client';
+
 import { Button } from "../ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import asset1 from "@/assets/sports.png";
 import Image from "next/image";
 import asset2 from "@/assets/Dumbell.png"
+import { useUser, SignInButton } from "@clerk/nextjs";
+import Link from "next/link";
+
+
+
 
 export const Hero = () => {
+  const {isSignedIn} = useUser();
+
   return (
     <section className="pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#fACC15,#FFFFFF_100%)] dark:bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#FACC15,#000000_100%)] overflow-x-clip
       ">
@@ -23,10 +32,20 @@ export const Hero = () => {
               23Flex hadir untuk membantumu mencapai target kebugaran dengan fitur menu latihan, progres tracker, dan pengingat jadwal yang memudahkan.  
               Saatnya kamu <strong>#FlexYourJourney</strong>.
             </p>
-            <div className="flex items-center mt-8">
-              <Button>
-                Mulai Sekarang <ArrowRightIcon className="h-5 w-5 ml-1" />
-              </Button>
+             <div className="flex items-center mt-8">
+              {isSignedIn ? (
+                <Link href="/exercise">
+                  <Button>
+                    Mulai Sekarang <ArrowRightIcon className="h-5 w-5 ml-1" />
+                  </Button>
+                </Link>
+              ) : (
+                <SignInButton mode="modal">
+                  <Button>
+                    Mulai Sekarang <ArrowRightIcon className="h-5 w-5 ml-1" />
+                  </Button>
+                </SignInButton>
+              )}
             </div>
           </div>
 

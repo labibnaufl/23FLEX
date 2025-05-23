@@ -60,10 +60,9 @@ export default async function DesktopNavbar() {
               <span className="hidden lg:inline">Profil</span>
             </Link>
           </Button>
-
-          {/* Tombol User */}
           <UserButton />
         </>
+        
       ) : (
         <SignInButton mode="modal">
           <Button variant="default">Masuk</Button>

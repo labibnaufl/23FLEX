@@ -169,7 +169,7 @@ export const CatatLatihan = () => {
                 
 
                 {exercises.length > 1 && (
-                  <Button variant='destructive' onClick={() => removeExerciseField(index)}>
+                  <Button className='ml-3' variant='destructive' onClick={() => removeExerciseField(index)}>
                     Hapus Latihan
                   </Button>
                 )}

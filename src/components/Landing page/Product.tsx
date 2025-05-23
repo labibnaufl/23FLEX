@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import asset3 from '@/assets/Kettle.png';
 import asset4 from '@/assets/Kettle.png';
-import asset5 from '@/assets/prouct.png';
+import asset5 from '@/assets/product.png';
 
 export const Product = () => {
   return (
